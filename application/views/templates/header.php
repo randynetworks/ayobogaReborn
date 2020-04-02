@@ -23,7 +23,6 @@
     }
     </style>
 
-    <script src="https://use.fontawesome.com/eee41407f2.js"></script>
 </head>
 <body>
 
