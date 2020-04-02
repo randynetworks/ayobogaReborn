@@ -21,6 +21,21 @@
     background-color: #fff;
     border: none;
     }
+
+        #hover-link:hover {
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+    .navbar-brand {
+        font-size: 25px;
+    }
+
+    body{
+        background-color: #e1f5fe; 
+    }
+
+   
     </style>
 
 </head>
@@ -52,8 +67,9 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-success my-2 my-sm-0 ml-2" type="submit">Masuk!</button>
+
+      <button class="btn btn-danger my-2 my-sm-0 ml-2" type="submit">Daftar!</button>
     </form>
   </div>
 </nav>

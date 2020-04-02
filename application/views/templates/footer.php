@@ -28,13 +28,13 @@
           <h5 class="text-uppercase font-weight-bold mb-4">Belajar</h5>
           <br>
           <ul class="list-unstyled ">
-            <li><a href="#!" class="text-white">Kelas Memasak</a></li>
+            <li><a href="#!" class="text-white " id="hover-link">Kelas Memasak</a></li>
             <hr>
-            <li><a href="#!" class="text-white">Memulai Memasak</a></li>
+            <li><a href="#!" class="text-white " id="hover-link">Memulai Memasak</a></li>
             <hr>
-            <li><a href="#!" class="text-white">Kelas Service</a></li>
+            <li><a href="#!" class="text-white " id="hover-link">Kelas Service</a></li>
             <hr>
-            <li><a href="#!" class="text-white">Memulai Service</a></li>
+            <li><a href="#!" class="text-white " id="hover-link">Memulai Service</a></li>
           </ul>
         </div>
         <!--/.Second column-->
@@ -46,13 +46,13 @@
           <h5 class="text-uppercase font-weight-bold mb-4">Kontak Kita</h5>
           <br>
           <ul class="list-unstyled">
-            <li><a href="#!" class="text-white"><i class="far fa-envelope"> support@ayoboga.com</i> </a></li>
+            <li><a href="#!" class="text-white " id="hover-link"><i class="far fa-envelope"> support@ayoboga.com</i> </a></li>
             <hr>
-            <li><a href="#!" class="text-white"><i class="fab fa-instagram"> @ayoboga</i></a></li>
+            <li><a href="#!" class="text-white " id="hover-link"><i class="fab fa-instagram"> @ayoboga</i></a></li>
             <hr>
-            <li><a href="#!" class="text-white"><i class="fab fa-github"> ayoboga</i></a></li>
+            <li><a href="#!" class="text-white " id="hover-link"><i class="fab fa-github"> ayoboga</i></a></li>
             <hr>
-            <li><a href="#!" class="text-white">Join Us!</a></li>
+            <li><a href="#!" class="text-white " id="hover-link">Join Us!</a></li>
           </ul>
         </div>
         <!--/.Third column-->
@@ -65,11 +65,11 @@
           <h5 class="text-uppercase font-weight-bold mb-4">Akun kamu</h5>
           <br><br>
           <ul class="list-unstyled">
-            <li><a href="#!" class="text-white">Masuk di sini!</a></li>
+            <li><a href="#!" class="text-white " id="hover-link">Masuk di sini!</a></li>
             <hr>
-            <li><a href="#!" class="text-white">Mendaftar!</a></li>
+            <li><a href="#!" class="text-white " id="hover-link">Mendaftar!</a></li>
             <hr>
-            <li><a href="#!" class="text-white">Profil Kamu!</a></li>
+            <li><a href="#!" class="text-white " id="hover-link">Profil Kamu!</a></li>
           </ul>
         </div>
         <!--/.Fourth column-->
