@@ -11,13 +11,22 @@ class Belajar extends CI_Controller {
     }
 	
 
-	public function belajar_masak()
-	{
+	public function belajar_masak() {
 		$data['cards_masak'] = $this->belajar_model->get_card_belajar_product();
         $this->load->helper('url');
 
 		$this->load->view('templates/header');
 		$this->load->view('belajar/belajar_masak',$data);
+        $this->load->view('templates/footer'); 
+
+	}
+
+	public function view($slug = NULL) {
+		$data['cards_masak_item'] = $this->belajar_model->get_card_belajar_product($slug);
+        $this->load->helper('url');
+
+		$this->load->view('templates/header');
+		$this->load->view('belajar/view',$data);
         $this->load->view('templates/footer'); 
 
 	}
