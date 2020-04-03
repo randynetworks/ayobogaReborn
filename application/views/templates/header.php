@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Ayoboga.com | Website belajar Masak Online</title>
 
 	<!-- CSS -->
@@ -22,10 +22,10 @@
     border: none;
     }
 
-        #hover-link:hover {
-            font-size: 20px;
-            text-decoration: none;
-        }
+    #hover-link:hover {
+      font-size: 20px;
+      text-decoration: none;
+    }
 
     .navbar-brand {
         font-size: 25px;
@@ -49,7 +49,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="<?= base_url(); ?>">Menu Utama</a>
       </li>
       <li class="nav-item dropdown">
@@ -59,7 +59,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?= base_url('belajar/belajar_masak');?>">Kelas Masak</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Memulai Masak</a>
+          <a class="dropdown-item disable" href="<?= base_url('belajar/belajar_service');?>">Kelas Service</a>
         </div>
       </li>
       <li class="nav-item">
@@ -68,7 +68,6 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <button class="btn btn-success my-2 my-sm-0 ml-2" type="submit">Masuk!</button>
-
       <button class="btn btn-danger my-2 my-sm-0 ml-2" type="submit">Daftar!</button>
     </form>
   </div>

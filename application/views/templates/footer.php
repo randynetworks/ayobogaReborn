@@ -28,9 +28,9 @@
           <h5 class="text-uppercase font-weight-bold mb-4">Belajar</h5>
           <br>
           <ul class="list-unstyled ">
-            <li><a href="#!" class="text-white " id="hover-link">Kelas Memasak</a></li>
+            <li><a href="<?= base_url('belajar/belajar_masak');?>" class="text-white " id="hover-link">Kelas Memasak</a></li>
             <hr>
-            <li><a href="#!" class="text-white " id="hover-link">Memulai Memasak</a></li>
+            <li><a href="#!" class="text-white " id="hover-link">Kelas Service</a></li>
           </ul>
         </div>
         <!--/.Second column-->
