@@ -21,12 +21,12 @@ class Belajar extends CI_Controller {
 
 	}
 
-	public function view($slug = NULL) {
+	public function view_masak($slug = NULL) {
 		$data['cards_masak_item'] = $this->belajar_model->get_card_belajar_product($slug);
         $this->load->helper('url');
 
 		$this->load->view('templates/header');
-		$this->load->view('belajar/view',$data);
+		$this->load->view('belajar/view_masak',$data);
         $this->load->view('templates/footer'); 
 
 	}
@@ -38,6 +38,16 @@ class Belajar extends CI_Controller {
 
 		$this->load->view('templates/header');
 		$this->load->view('belajar/belajar_service',$data);
+        $this->load->view('templates/footer'); 
+
+	}
+
+	public function view_service($slug = NULL) {
+		$data['cards_service_item'] = $this->belajar_model->get_card_belajar_service($slug);
+        $this->load->helper('url');
+
+		$this->load->view('templates/header');
+		$this->load->view('belajar/view_service',$data);
         $this->load->view('templates/footer'); 
 
 	}
