@@ -35,7 +35,7 @@ class Belajar extends CI_Controller
     public function view_masak($slug = null)
     {
         $data['cards_masak_item'] = $this->belajar_model->get_card_belajar_product($slug);
-        $data['items'] = $this->belajar_model->getMaterial_product();
+        $data['items'] = $this->belajar_model->getMaterial_product('BPCO');
         $this->load->helper('url');
 
         $this->load->view('templates/header');
