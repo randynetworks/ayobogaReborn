@@ -32,7 +32,7 @@ class Belajar_model extends CI_Model
     }
     public function getMaterial_product()
     {
-        $query = $this->db->get('table_data_input');
+        $query = $this->db->get_where('table_data_input');
         return $query->result_array();
     }
 }
