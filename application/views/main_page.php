@@ -7,7 +7,7 @@
 	<?php foreach ($card_news as $news_item) : ?>
 		<div class="text-center bg-light border-light pt-3 pb-3" style="width: 25rem; display:inline;">
 			<div class="card-body">
-				<h3 class="card-title"><?= $news_item['title']; ?></h3>
+				<h2 class="card-title"><?= $news_item['title']; ?></h2>
 				<p class="card-text"><?= $news_item['text']; ?></p>
 			</div>
 			<hr>

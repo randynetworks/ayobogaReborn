@@ -69,6 +69,10 @@
 		.main-page {
 			color: #eeeeee;
 		}
+
+		.title-card {
+			color: #23374d;
+		}
 	</style>
 
 </head>

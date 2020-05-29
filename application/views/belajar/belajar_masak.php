@@ -7,10 +7,10 @@
 	<div class="card-deck row mt-5">
 		<?foreach ($cards_masak as $cardMasak) : ?>
 		<div class="col-md-4 mb-3 text-center">
-			<div class="card text-dark">
+			<div class="card">
 				<div class="card-body text-align">
-					<h4 class="card-title"><a href="<?= base_url('belajar/view_masak/' . $cardMasak['slug']); ?>" class="hover-link"><?= $cardMasak['title']; ?></a></h4>
-					<p class="card-text"><?= $cardMasak['sub_title']; ?></p>
+					<h4 class="card-title title-card"><a href="<?= base_url('belajar/view_masak/' . $cardMasak['slug']); ?>" class="hover-link"><?= $cardMasak['title']; ?></a></h4>
+					<p class="card-text text-dark"><?= $cardMasak['sub_title']; ?></p>
 				</div>
 			</div>
 		</div>
