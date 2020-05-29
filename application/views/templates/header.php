@@ -23,6 +23,24 @@
 
 		}
 
+		@media only screen and (min-width: 600px) and (max-width: 800px) {
+			.judul {
+				font-size: 70px;
+			}
+		}
+
+		@media only screen and (max-width: 300px) {
+			.judul {
+				font-size: 30px;
+			}
+		}
+
+		@media only screen and (min-width: 900px) {
+			.judul {
+				font-size: 90px;
+			}
+		}
+
 		hr {
 			height: 2px;
 			background-color: #fff;
@@ -39,7 +57,17 @@
 		}
 
 		body {
-			background-color: #e1f5fe;
+			background-color: #1089ff;
+		}
+
+		.navbar,
+		.ban,
+		.page-footer {
+			background: #23374d;
+		}
+
+		.main-page {
+			color: #eeeeee;
 		}
 	</style>
 
@@ -47,7 +75,7 @@
 
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
 		<a class="navbar-brand" href="<?= base_url(); ?>">Ayoboga.com</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
