@@ -12,7 +12,7 @@
 					karena melihat jarang sekali website pembelajaran lengkap mulai dari awal hingga expert untuk belajar masak,
 					selain dari itu, ayoboga dibuat untuk mengajak generasi milenial yang faktanya sangat malas untuk memasak.<br><br>
 
-					Randy <br>
+					<a href="https://hello-randy.ayoboga.com/">Randy</a><br>
 					Co-Founder ayoboga.com
 				</p>
 			</div>
@@ -26,7 +26,7 @@
 				<ul class="list-unstyled ">
 					<li><a href="<?= base_url('belajar/belajar_masak'); ?>" class="text-white " id="hover-link">Kelas Memasak</a></li>
 					<hr>
-					<li><a href="#!" class="text-white " id="hover-link">Kelas Service</a></li>
+					<li><a href="<?= base_url('belajar/belajar_service'); ?>" class="text-white " id="hover-link">Kelas Service</a></li>
 				</ul>
 			</div>
 			<!--/.Second column-->
