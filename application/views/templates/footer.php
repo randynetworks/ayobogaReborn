@@ -3,10 +3,10 @@
 
 	<!--Footer Links-->
 	<div class="container-fluid">
-		<div class="row pt-3">
+		<div class="p-2 row pt-3">
 
 			<!--First column-->
-			<div class="col-md-3 text-center">
+			<div class="col-md-3 mx-auto text-center">
 				<h5 class="text-uppercase font-weight-bold mb-4">Tentang Ayoboga.com</h5>
 				<p>Ayoboga adalah website pembelajaran online tentang jasaboga, alasan dibuatnya ayoboga,
 					karena melihat jarang sekali website pembelajaran lengkap mulai dari awal hingga expert untuk belajar masak,
@@ -21,7 +21,7 @@
 			<hr class="w-100 clearfix d-md-none">
 
 			<!--Second column-->
-			<div class="col-md-2 mx-auto text-center">
+			<div class="col-md-3  mx-auto text-center">
 				<h5 class="text-uppercase font-weight-bold mb-4">Belajar</h5>
 				<ul class="list-unstyled ">
 					<li><a href="<?= base_url('belajar/belajar_masak'); ?>" class="text-white " id="hover-link">Kelas Memasak</a></li>
@@ -34,7 +34,7 @@
 			<hr class="w-100 clearfix d-md-none">
 
 			<!--Third column-->
-			<div class="col-md-2 mx-auto text-center">
+			<div class="col-md-3 mx-auto text-center">
 				<h5 class="text-uppercase font-weight-bold mb-4">Kontak Kita</h5>
 				<ul class="list-unstyled">
 					<li><a href="#!" class="text-white" id="hover-link"><i class="fas fa-envelope" style="font-weight: normal;"> support@ayoboga.com</i> </a></li>
@@ -49,7 +49,7 @@
 			<hr class="w-100 clearfix d-md-none">
 
 			<!--Fourth column-->
-
+			<!-- 
 			<div class="col-md-2 mx-auto text-center">
 				<h5 class="text-uppercase font-weight-bold mb-4">Akun kamu</h5>
 				<ul class="list-unstyled">
@@ -60,7 +60,7 @@
 					<li><a href="#!" class="text-white " id="hover-link">Profil Kamu!</a></li>
 				</ul>
 			</div>
-			<!--/.Fourth column-->
+			/.Fourth column -->
 
 		</div>
 	</div>
