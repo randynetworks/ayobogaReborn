@@ -1,4 +1,4 @@
-<div class="main-page container pl-0 pr-0 mt-5 mb-5">
+<div class="main-page container sm-5 mt-3 mb-3">
 	<div class="text-center mb-5">
 		<h1 class="judul">Halo, Selamat Datang di Ayoboga.com</h1>
 	</div>

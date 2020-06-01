@@ -81,13 +81,59 @@
 		.title-card {
 			color: #23374d;
 		}
+
+		.splash {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			/* bring your own prefixes */
+			transform: translate(-50%, -50%);
+			width: 100%;
+			height: 100%;
+			background: #03a9f4;
+			z-index: 200;
+			color: #eeeeee;
+			text-align: center;
+			line-height: 90vh;
+		}
+
+		.splash h1 {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			/* bring your own prefixes */
+			transform: translate(-50%, -50%);
+		}
+
+		@keyframes fadeIn {
+			to {
+				opacity: 1;
+			}
+		}
+
+		.fade-in {
+			opacity: 0;
+			animation: fadeIn ease-in forwards;
+		}
 	</style>
+
+	<!-- <script>
+		const splash = document.querySelector('.splash');
+		document.addEventListener('DOMContentLoaded', (e) => {
+			setTimeout(() => {
+				splash.classList.add('display-none');
+			}, 2000);
+		})
+	</script> -->
 
 </head>
 
 <body>
+	<!-- <div class="splash">
+		<h1 class="fade-in">Hi, Untuk kenyamanan Belajar, tunggu bentar ya, <br>kita siapin semuanya dulu. Selamat Belajar!</h1>
+	</div> -->
 
-	<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 		<a class="navbar-brand" href="<?= base_url(); ?>">Ayoboga.com</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
