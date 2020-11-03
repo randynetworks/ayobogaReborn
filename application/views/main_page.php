@@ -1,6 +1,6 @@
 <div class="main-page container sm-5 mt-3 mb-3">
-	<div class="text-center mb-5">
-		<h1 class="judul">Halo, Selamat Datang di Ayoboga.com</h1>
+	<div class="text-center my-5">
+		<h1>Halo, Selamat Datang di Ayoboga.com</h1>
 	</div>
 	<h6 class="ban text-white p-3 text-center">Informasi dan artikel Terbaru untuk kamu!</h6>
 
