@@ -4,14 +4,12 @@
 	</div>
 	<h6 class="ban text-white p-3 text-center">Informasi dan artikel Terbaru untuk kamu!</h6>
 
-	<div class="card-deck row m-0 justify-content-center">
-		<?php foreach ($card_news as $news_item) : ?>
-			<div class="container content bg-white text-center p-3 mt-3">
-				<div class="card-body">
-					<h2 class="card-title text-primary"><?= $news_item['title']; ?></h2>
-					<p class="card-text text-dark"><?= $news_item['text']; ?></p>
-				</div>
-			</div>
-		<?php endforeach ?>
+	<div class="card-deck row m-0 justify-content-center my-5">
+		<div class="col-xl-6">
+		<div class="container content bg-white p-3 mt-3 text-center">
+			<h2 class="card-title text-primary">Mulai Belajar Masak!</h2>
+			<a class="btn btn-primary" href="<?= base_url('belajar/belajar_masak'); ?>">Disini!</a>
+		</div>
+		</div>
 	</div>
 </div>

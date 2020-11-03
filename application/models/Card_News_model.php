@@ -10,7 +10,7 @@ class Card_News_model extends CI_Model
 	public function get_news()
 	{
 		$this->db->order_by('id', 'DESC');
-		$query = $this->db->get('card_news', 5);
+		$query = $this->db->get('news', 3);
 		return $query->result_array();
 	}
 }

@@ -10,7 +10,7 @@
 			<div class="container content bg-white ">
 				<div class="card-body text-align">
 					<h4 class="card-title title-card"><a href="<?= base_url('belajar/view_masak/' . $cardMasak['slug']); ?>" class="hover-link"><?= $cardMasak['title']; ?></a></h4>
-					<p class="card-text text-dark"><?= $cardMasak['sub_title']; ?></p>
+					<p class="card-text text-dark"><?= $cardMasak['info']; ?></p>
 				</div>
 			</div>
 		</div>

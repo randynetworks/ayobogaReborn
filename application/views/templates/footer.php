@@ -12,7 +12,7 @@
 					karena melihat jarang sekali website pembelajaran lengkap mulai dari awal hingga expert untuk belajar masak,
 					selain dari itu, ayoboga dibuat untuk mengajak generasi milenial yang faktanya sangat malas untuk memasak.<br><br>
 
-					<a href="https://hello-randy.ayoboga.com/">Randy</a><br>
+					<a href="https://randynetworks.club/" class="text-white">Randy Ramadhan</a><br>
 					Co-Founder ayoboga.com
 				</p>
 			</div>

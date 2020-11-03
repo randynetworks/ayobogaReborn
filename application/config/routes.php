@@ -6,8 +6,8 @@ $route['masak'] = 'belajar/belajar_masak';
 $route['masak/(:any)'] = 'belajar/view_masak/$1';
 
 // service
-$route['service'] = 'belajar/belajar_service';
-$route['service/(:any)'] = 'belajar/view_service/$1';
+// $route['service'] = 'belajar/belajar_service';
+// $route['service/(:any)'] = 'belajar/view_service/$1';
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';

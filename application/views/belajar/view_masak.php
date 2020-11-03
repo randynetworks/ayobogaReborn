@@ -3,7 +3,7 @@
 		<h1 class="judul"><?= $cards_masak_item['title']; ?></h1>
 		<br>
 	</div>
-	<h6 class="ban text-white p-3 text-center"><?= $cards_masak_item['sub_title']; ?></h6>
+	<h6 class="ban text-white p-3 text-center"><?= $cards_masak_item['info']; ?></h6>
 
 	<div class="card-deck row m-0 justify-content-center">
 		<? foreach ($items as $item) : ?>
@@ -11,7 +11,6 @@
 			<div class="card-body">
 				<h1 class="card-title text-center text-primary"><?= ($item['title']); ?></h1>
 				<h3 class="text-center text-dark"><?= $item['sub_title']; ?></h3>
-				<p class="text-center text-dark"><?= $item['create_by']; ?></p>
 				<div class="text-dark">
 					<p><?= auto_typography(nl2br_except_pre($item['content'])); ?></p>
 				</div>

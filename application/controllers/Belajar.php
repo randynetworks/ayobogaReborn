@@ -33,7 +33,7 @@ class Belajar extends CI_Controller
 	}
 
 	// view per menu
-	public function view_masak($slug = null)
+	public function view_masak($slug)
 	{
 		$data['cards_masak_item'] = $this->belajar_model->get_card_belajar_product($slug);
 		$data['items'] = $this->belajar_model->getMaterial_product($slug);

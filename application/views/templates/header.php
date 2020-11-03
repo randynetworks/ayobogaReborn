@@ -115,24 +115,12 @@
 			opacity: 0;
 			animation: fadeIn ease-in forwards;
 		}
-	</style>
 
-	<!-- <script>
-		const splash = document.querySelector('.splash');
-		document.addEventListener('DOMContentLoaded', (e) => {
-			setTimeout(() => {
-				splash.classList.add('display-none');
-			}, 2000);
-		})
-	</script> -->
+	</style>
 
 </head>
 
 <body>
-	<!-- <div class="splash">
-		<h1 class="fade-in">Hi, Untuk kenyamanan Belajar, tunggu bentar ya, <br>kita siapin semuanya dulu. Selamat Belajar!</h1>
-	</div> -->
-
 	<nav class="navbar navbar-expand-lg navbar-dark">
 		<a class="navbar-brand" href="<?= base_url(); ?>">Ayoboga.com</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -141,26 +129,14 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url(); ?>">Menu Utama</a>
-				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Belajar
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="<?= base_url('belajar/belajar_masak'); ?>">Kelas Masak</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item disable" href="<?= base_url('belajar/belajar_service'); ?>">Kelas Service</a>
 					</div>
 				</li>
-				<!-- <li class="nav-item">
-					<a class="nav-link" href="#">Profil</a>
-				</li> -->
 			</ul>
-			<!-- <form class="form-inline my-2 my-lg-0">
-				<button class="btn btn-success my-2 my-sm-0 ml-2" type="submit">Masuk!</button>
-				<button class="btn btn-danger my-2 my-sm-0 ml-2" type="submit">Daftar!</button>
-			</form> -->
 		</div>
 	</nav>
