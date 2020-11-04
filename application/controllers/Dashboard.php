@@ -78,4 +78,44 @@ class Dashboard extends CI_Controller
 		$this->db->delete('menus');
 		redirect('dashboard/menus');
 	}
+
+	// view per menu
+	public function edit_menu($id)
+	{
+		$dataHeader = [
+			'title' => "Edit data Ayoboga",
+			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
+		];
+
+		$data = [
+			'item' => $this->belajar_model->get_menus($id)
+		];
+
+		$this->load->view('templates/header', $dataHeader);
+		$this->load->view('dashboard/edit_menu', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function update_menu()
+	{
+		$this->form_validation->set_rules('id_menu', 'id_menu', 'required');
+		$this->form_validation->set_rules('title', 'title', 'required');
+		$this->form_validation->set_rules('slug', 'slug', 'required');
+		$this->form_validation->set_rules('info', 'info', 'required');
+
+		if ($this->form_validation->run() === FALSE) {
+			redirect('dashboard/menus');
+		} else {
+			$data = array(
+				'id_menu' => $this->input->post('id_menu'),
+				'title' => $this->input->post('title'),
+				'slug' => $this->input->post('slug'),
+				'info' => $this->input->post('info')
+			);
+			$where = array('id' => $this->input->post('id'));
+
+			$this->belajar_model->update_menu($where, $data);
+			redirect('dashboard/menus');
+		}
+	}
 }

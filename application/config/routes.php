@@ -10,6 +10,9 @@ $route['dashboard'] = 'dashboard';
 $route['dashboard/menus'] = 'dashboard/menus';
 $route['dashboard/set_menu'] = 'dashboard/set_menu';
 $route['dashboard/destroy_menu/(:any)'] = 'dashboard/destroy_menu/$1';
+$route['dashboard/edit_menu/(:any)'] = 'dashboard/edit_menu/$1';
+$route['dashboard/update_menu'] = 'dashboard/update_menu';
+
 
 $route['dashboard/materials'] = 'dashboard/materials';
 

@@ -73,7 +73,7 @@
 								<td><?= $item['slug']; ?></td>
 								<td><?= $item['info']; ?></td>
 								<td>
-									<a href="" class="badge badge-success badge-sm">Edit</a>
+									<a href="<?= base_url('dashboard/edit_menu/').$item['id']; ?>" class="badge badge-success badge-sm">Edit</a>
 									<a href="<?= base_url('dashboard/destroy_menu/').$item['id']; ?>" class="badge badge-danger badge-sm">Delete</a>
 								</td>
 							</tr>
