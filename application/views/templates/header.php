@@ -135,6 +135,9 @@
 						<a class="dropdown-item" href="<?= base_url('belajar/belajar_masak'); ?>">Kelas Masak</a>
 					</div>
 				</li>
+				<li class="nav-item">
+					<a href="<?= base_url('dashboard'); ?>" class="nav-link">Dashboard</a>
+				</li>
 			</ul>
 		</div>
 	</nav>

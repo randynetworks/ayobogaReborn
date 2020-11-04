@@ -12,5 +12,13 @@
 				</div>
 			</div>
 		</div>
+		<div class="col-md-4 mb-3 text-center">
+			<div class="container content bg-white">
+				<div class="card-body text-align">
+					<h4 class="card-title title-card">Manage Data Material</h4>
+					<a href="<?= base_url('dashboard/materials') ?>" class="btn btn-success">Manage !</a>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

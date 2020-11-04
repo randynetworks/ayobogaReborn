@@ -8,6 +8,10 @@ $route['masak/(:any)'] = 'belajar/view_masak/$1';
 // Dashboard
 $route['dashboard'] = 'dashboard';
 $route['dashboard/menus'] = 'dashboard/menus';
+$route['dashboard/set_menu'] = 'dashboard/set_menu';
+$route['dashboard/destroy_menu/(:any)'] = 'dashboard/destroy_menu/$1';
+
+$route['dashboard/materials'] = 'dashboard/materials';
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
