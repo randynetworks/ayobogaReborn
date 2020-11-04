@@ -114,6 +114,20 @@
 			animation: fadeIn ease-in forwards;
 		}
 
+		.my-custom-scrollbar {
+			position: relative;
+			height: 400px;
+			overflow: auto;
+		}
+
+		.table-wrapper-scroll-y {
+			display: block;
+		}
+
+		.scroll {
+			max-height: 400px;
+			overflow-y: auto;
+		}
 	</style>
 
 </head>

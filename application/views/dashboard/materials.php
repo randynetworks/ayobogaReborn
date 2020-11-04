@@ -75,7 +75,7 @@
 							</form>
 						</div>
 					</div>
-					<table class="table table-striped table-primary text-dark">
+					<table class="table table-striped table-primary text-dark table-wrapper-scroll-y my-custom-scrollbar">
 						<thead>
 							<tr>
 								<th class="align-middle" scope="col">No.</th>
