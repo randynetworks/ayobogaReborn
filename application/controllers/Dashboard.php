@@ -30,11 +30,27 @@ class Dashboard extends CI_Controller
 			'title' => "Dashboard Manage Menu di Ayoboga",
 			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
 		];
+
+		// SEARCHING
+		// GET KEYWORD
+		if ($this->input->post('submit')) {
+			$data['keyword'] = $this->input->post('keyword');
+			
+		} else {
+			$data['keyword'] = 	null;
+		}
+
+		// reset
+		if ($this->input->post('reset')) {
+			$data['keyword'] = 	null;
+		}
 		$id = false;
 
 		$data = [
-			'menus' => $this->belajar_model->get_data($id, 'menus')
+			'menus' => $this->belajar_model->get_data($id, 'menus', $data['keyword'])
 		];
+
+		
 
 		$this->load->view('templates/header', $dataHeader);
 		$this->load->view('dashboard/menus', $data);
@@ -118,10 +134,24 @@ class Dashboard extends CI_Controller
 			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
 		];
 
+		// SEARCHING
+		// GET KEYWORD
+		if ($this->input->post('submit')) {
+			$data['keyword'] = $this->input->post('keyword');
+			
+		} else {
+			$data['keyword'] = 	null;
+		}
+
+		// reset
+		if ($this->input->post('reset')) {
+			$data['keyword'] = 	null;
+		}
+
 		$id = false;
 
 		$data = [
-			'materials' => $this->belajar_model->get_data($id, 'materials'),
+			'materials' => $this->belajar_model->get_data($id, 'materials', $data['keyword']),
 		];
 
 		$this->load->view('templates/header', $dataHeader);

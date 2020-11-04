@@ -62,6 +62,19 @@
 			<div class="container content bg-white">
 				<div class="card-body text-align">
 					<h4 class="card-title title-card">Manage Data material</h4>
+					<div class="row">
+						<div class="col-md-5">
+							<form action="<?= base_url('dashboard/materials'); ?>" method="POST">
+								<div class="input-group mb-3">
+									<input name="keyword" type="text" class="form-control" placeholder="Cari dengan Judul..." aria-label="Recipient's username" aria-describedby="button-addon2" autocomplete="off" autofocus>
+									<div class="input-group-append">
+										<input type="submit" name="submit" class="btn btn-outline-primary" value="Cari!" type="button" id="button-addon2">
+										<input type="submit" name="reset" class="btn btn-outline-secondary" value="Reset!" type="button" id="button-addon2">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
 					<table class="table table-striped table-primary text-dark">
 						<thead>
 							<tr>
@@ -76,6 +89,13 @@
 							</tr>
 						</thead>
 						<tbody>
+							<? if (empty($materials)) : ?>
+							<tr>
+								<div class="alert alert-danger text-center" role="alert">
+									Data Tidak Ditemukan :(
+								</div>
+							</tr>
+							<? endif; ?>
 							<?$i = 1; foreach ($materials as $item) : ?>
 							<tr>
 								<th scope="row"><?= $i++; ?></th>

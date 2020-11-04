@@ -42,8 +42,11 @@ class Belajar_model extends CI_Model
 		return $query->result_array(); 
 	}
 
-	public function get_data($id, $table)
+	public function get_data($id, $table, $keyword = null)
 	{
+		if ($keyword) {
+			$this->db->like('title', $keyword);
+		}
 		if ($id === false) {
 			$this->db->order_by('id', 'DESC');
 			$query = $this->db->get($table);
