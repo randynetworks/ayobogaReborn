@@ -4,9 +4,9 @@
 	</div>
 	<h6 class="ban text-white p-3 text-center"><?= $cards_masak_item['info']; ?></h6>
 
-	<div class="card-deck row m-0 justify-content-center">
-		<? foreach ($items as $item) : ?>
-		<div class="container content bg-white p-3 mt-3">
+	<? foreach ($items as $item) : ?>
+	<div class="row m-0 justify-content-center">
+		<div class="card rounded col-xl-5 bg-white p-3 mt-3">
 			<div class="card-body">
 				<h3 class="card-title text-center text-primary"><?= ($item['title']); ?></h3>
 				<h4 class="text-center text-dark"><?= $item['sub_title']; ?></h4>
@@ -15,8 +15,8 @@
 				</div>
 			</div>
 		</div>
-		<? endforeach ?>
 	</div>
+	<? endforeach ?>
 </div>
 
 <br><br>

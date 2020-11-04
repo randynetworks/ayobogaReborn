@@ -18,8 +18,10 @@ class Belajar extends CI_Controller
 			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
 		];
 
+		$kode = 'BP';
+
 		$data = [
-			'cards_masak' => $this->belajar_model->get_card_belajar_product()
+			'cards_masak' => $this->belajar_model->get_card('menus', $kode)
 		]; 
 
 		$this->load->view('templates/header', $dataHeader);
@@ -35,9 +37,11 @@ class Belajar extends CI_Controller
 			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
 		];
 
+		$kode = 'BP';
+
 		$data = [
-			'cards_masak_item' => $this->belajar_model->get_card_belajar_product($slug),
-			'items' => $this->belajar_model->getMaterial_product($slug)
+			'cards_masak_item' => $this->belajar_model->get_card('menus', $kode, $slug),
+			'items' => $this->belajar_model->get_material($slug)
 		];
 
 		$this->load->view('templates/header', $dataHeader);

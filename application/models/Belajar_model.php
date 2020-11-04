@@ -7,41 +7,32 @@ class Belajar_model extends CI_Model
 		$this->load->database();
 	}
 
-	public function get_card_belajar_product($slug = false)
+	// USER AREA
+	public function get_card($table, $kode, $slug = false)
 	{
 		if ($slug === false) {
-			$this->db->like('id_menu', 'BP');
-			$query = $this->db->get('menus');
+			$this->db->like('id_menu', $kode);
+			$query = $this->db->get($table);
 			return $query->result_array();
 		}
 
-		$query = $this->db->get_where('menus', array('slug' => $slug));
+		$query = $this->db->get_where($table, array('slug' => $slug));
 		return $query->row_array();
 	}
 
-	public function get_card_belajar_service($slug = false)
+	public function get_material($slug = false)
 	{
-		if ($slug === false) {
-			$this->db->like('id_menu', 'BS');
-			$query = $this->db->get('menus');
-			return $query->result_array();
-		}
-
-		$query = $this->db->get_where('menus', array('slug' => $slug));
-		return $query->row_array();
-	}
-	public function getMaterial_product($slug_menu = false)
-	{
-		if ($slug_menu == false) {
+		if ($slug == false) {
 			$query = $this->db->get('materials');
 			return $query->result_array();
 		}
 
-		$this->db->like('slug', $slug_menu);
+		$this->db->like('slug', $slug);
 		$query = $this->db->get('materials');
 		return $query->result_array(); 
 	}
 
+	// DASHBOARD AREA
 	public function get_data($id, $table, $keyword = null)
 	{
 		if ($keyword) {
@@ -72,4 +63,5 @@ class Belajar_model extends CI_Model
 		$this->db->where($where);
 		$this->db->update($table, $data);
 	}
+
 }
