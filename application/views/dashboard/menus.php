@@ -22,26 +22,26 @@
 				</div>
 				<div class="modal-body">
 					<?php echo form_open('dashboard/set_menu'); ?>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEmail4">ID Menu</label>
-								<input name= "id_menu" type="text" class="form-control" id="inputEmail4" placeholder="Masukan ID Menu">
-							</div>
-							<div class="form-group col-md-6">
-								<label for="inputPassword4">Judul Menu</label>
-								<input name="title" type="text" class="form-control" id="inputPassword4" placeholder="Masukan Judul Menu">
-							</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">ID Menu</label>
+							<input name="id_menu" type="text" class="form-control" id="inputEmail4" placeholder="Masukan ID Menu">
 						</div>
-						<div class="form-group">
-							<label for="inputAddress">Slug</label>
-							<input name="slug" type="text" class="form-control" id="inputAddress" placeholder="Masukan Slug Menu">
+						<div class="form-group col-md-6">
+							<label for="inputPassword4">Judul Menu</label>
+							<input name="title" type="text" class="form-control" id="inputPassword4" placeholder="Masukan Judul Menu">
 						</div>
-						<div class="form-group">
-							<label for="inputAddress2">Info</label>
-							<input name="info" type="text" class="form-control" id="inputAddress2" placeholder="Masukan Info Menu">
-						</div>
-						<button type="submit" class="btn btn-primary">Simpan</button>
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+					<div class="form-group">
+						<label for="inputAddress">Slug</label>
+						<input name="slug" type="text" class="form-control" id="inputAddress" placeholder="Masukan Slug Menu">
+					</div>
+					<div class="form-group">
+						<label for="inputAddress2">Info</label>
+						<textarea name="info" type="text" class="form-control" id="inputAddress2" placeholder="Masukan Info Menu" rows="5"></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">Simpan</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					</form>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 			<div class="container content bg-white">
 				<div class="card-body text-align">
 					<h4 class="card-title title-card">Manage Data Menu</h4>
-					<table class="table table-striped table-primary text-dark">
+					<table class="table table-striped table-primary text-dark mt-3">
 						<thead>
 							<tr>
 								<th class="align-middle" scope="col">No.</th>
@@ -73,8 +73,8 @@
 								<td><?= $item['slug']; ?></td>
 								<td><?= $item['info']; ?></td>
 								<td>
-									<a href="<?= base_url('dashboard/edit_menu/').$item['id']; ?>" class="badge badge-success badge-sm">Edit</a>
-									<a href="<?= base_url('dashboard/destroy_menu/').$item['id']; ?>" class="badge badge-danger badge-sm">Delete</a>
+									<a href="<?= base_url('dashboard/edit_menu/') . $item['id']; ?>" class="badge badge-success badge-sm">Edit</a>
+									<a href="<?= base_url('dashboard/destroy_menu/') . $item['id']; ?>" class="badge badge-danger badge-sm">Delete</a>
 								</td>
 							</tr>
 							<? endforeach; ?>
