@@ -20,7 +20,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<?php echo form_open('dashboard/set_menu'); ?>
+					<?php echo form_open('dashboard/set_material'); ?>
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="inputEmail4">ID Menu</label>
@@ -32,7 +32,7 @@
 						</div>
 					</div>
 					<div class="form-row">
-					<div class="form-group col-md-6">
+						<div class="form-group col-md-6">
 							<label for="inputAddress">Title</label>
 							<input name="title" type="text" class="form-control" id="inputAddress" placeholder="Masukan Slug Title">
 						</div>
@@ -84,10 +84,10 @@
 								<td><?= $item['title']; ?></td>
 								<td><?= $item['slug']; ?></td>
 								<td><?= $item['sub_title']; ?></td>
-								<td><?= substr($item['content'], 0, 30); ?></td>
+								<td><?= substr(strip_tags($item['content']), 0, 30); ?></td>
 								<td>
-									<a href="" class="badge badge-success badge-sm">Edit</a>
-									<a href="" class="badge badge-danger badge-sm">Delete</a>
+									<a href="<?= base_url('dashboard/edit_material/') . $item['id']; ?>" class="badge badge-success badge-sm">Edit</a>
+									<a href="<?= base_url('dashboard/destroy_material/') . $item['id']; ?>" class="badge badge-danger badge-sm">Delete</a>
 								</td>
 							</tr>
 							<? endforeach; ?>

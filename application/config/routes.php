@@ -15,6 +15,11 @@ $route['dashboard/update_menu'] = 'dashboard/update_menu';
 
 
 $route['dashboard/materials'] = 'dashboard/materials';
+$route['dashboard/set_material'] = 'dashboard/set_material';
+$route['dashboard/destroy_material/(:any)'] = 'dashboard/destroy_material/$1';
+$route['dashboard/edit_material/(:any)'] = 'dashboard/edit_material/$1';
+$route['dashboard/update_material'] = 'dashboard/update_material';
+
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';

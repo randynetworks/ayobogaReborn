@@ -39,36 +39,34 @@ class Belajar_model extends CI_Model
 
 		$this->db->like('slug', $slug_menu);
 		$query = $this->db->get('materials');
-		return $query->result_array();
+		return $query->result_array(); 
 	}
 
-	public function get_menus($id = false)
+	public function get_data($id, $table)
 	{
 		if ($id === false) {
 			$this->db->order_by('id', 'DESC');
-			$query = $this->db->get('menus');
+			$query = $this->db->get($table);
 			return $query->result_array();
 		}
-		$query = $this->db->get_where('menus', array('id' => $id));
+		$query = $this->db->get_where($table, array('id' => $id));
 		return $query->row_array();
 	}
 
-	public function set_menu()
+	public function set_data($data, $table)
 	{
-
-		$data = array(
-			'id_menu' => $this->input->post('id_menu'),
-			'title' => $this->input->post('title'),
-			'slug' => $this->input->post('slug'),
-			'info' => $this->input->post('info')
-		);
-
-		return $this->db->insert('menus', $data);
+		return $this->db->insert($table, $data);
 	}
 
-	public function update_menu($where, $data)
+	public function destroy_data($id, $table)
+	{
+		$this->db->where('id', $id);
+		return $this->db->delete($table);
+	}
+
+	public function update_data($where, $data, $table)
 	{
 		$this->db->where($where);
-		$this->db->update('menus', $data);
+		$this->db->update($table, $data);
 	}
 }

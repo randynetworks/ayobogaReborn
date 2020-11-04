@@ -30,9 +30,10 @@ class Dashboard extends CI_Controller
 			'title' => "Dashboard Manage Menu di Ayoboga",
 			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
 		];
+		$id = false;
 
 		$data = [
-			'menus' => $this->belajar_model->get_menus()
+			'menus' => $this->belajar_model->get_data($id, 'menus')
 		];
 
 		$this->load->view('templates/header', $dataHeader);
@@ -40,22 +41,6 @@ class Dashboard extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function materials()
-	{
-		$dataHeader = [
-			'title' => "Dashboard Manage Materials di Ayoboga",
-			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
-		];
-
-		$data = [
-			'materials' => $this->belajar_model->getMaterial_product(),
-
-		];
-
-		$this->load->view('templates/header', $dataHeader);
-		$this->load->view('dashboard/materials', $data);
-		$this->load->view('templates/footer');
-	}
 
 	public function set_menu()
 	{
@@ -64,18 +49,24 @@ class Dashboard extends CI_Controller
 		$this->form_validation->set_rules('slug', 'slug', 'required');
 		$this->form_validation->set_rules('info', 'info', 'required');
 
+		$data = array(
+			'id_menu' => $this->input->post('id_menu'),
+			'title' => $this->input->post('title'),
+			'slug' => $this->input->post('slug'),
+			'info' => $this->input->post('info')
+		);
+
 		if ($this->form_validation->run() === FALSE) {
 			redirect('dashboard/menus');
 		} else {
-			$this->belajar_model->set_menu();
+			$this->belajar_model->set_data($data, 'menus');
 			redirect('dashboard/menus');
 		}
 	}
 
 	public function destroy_menu($id)
 	{
-		$this->db->where('id', $id);
-		$this->db->delete('menus');
+		$this->belajar_model->destroy_data($id, 'menus');
 		redirect('dashboard/menus');
 	}
 
@@ -88,7 +79,7 @@ class Dashboard extends CI_Controller
 		];
 
 		$data = [
-			'item' => $this->belajar_model->get_menus($id)
+			'item' => $this->belajar_model->get_data($id,'menus')
 		];
 
 		$this->load->view('templates/header', $dataHeader);
@@ -114,8 +105,97 @@ class Dashboard extends CI_Controller
 			);
 			$where = array('id' => $this->input->post('id'));
 
-			$this->belajar_model->update_menu($where, $data);
+			$this->belajar_model->update_data($where, $data, 'menus');
 			redirect('dashboard/menus');
+		}
+	}
+
+
+	public function materials()
+	{
+		$dataHeader = [
+			'title' => "Dashboard Manage Materials di Ayoboga",
+			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
+		];
+
+		$id = false;
+
+		$data = [
+			'materials' => $this->belajar_model->get_data($id, 'materials'),
+		];
+
+		$this->load->view('templates/header', $dataHeader);
+		$this->load->view('dashboard/materials', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function set_material()
+	{
+		$this->form_validation->set_rules('id_menu', 'id_menu', 'required');
+		$this->form_validation->set_rules('id_material', 'id_material', 'required');
+		$this->form_validation->set_rules('title', 'title', 'required');
+		$this->form_validation->set_rules('slug', 'slug', 'required');
+		$this->form_validation->set_rules('sub_title', 'sub_title', 'required');
+		$this->form_validation->set_rules('content', 'content', 'required');
+
+		if ($this->form_validation->run() === FALSE) {
+			redirect('dashboard/materials');
+		} else {
+			$data = array(
+				'id_menu' => $this->input->post('id_menu'),
+				'id_material' => $this->input->post('id_material'),
+				'title' => $this->input->post('title'),
+				'slug' => $this->input->post('slug'),
+				'sub_title' => $this->input->post('sub_title'),
+				'content' => $this->input->post('content')
+			);
+			$this->belajar_model->set_data($data, 'materials');
+			redirect('dashboard/materials');
+		}
+	}
+
+	public function destroy_material($id)
+	{
+		$this->belajar_model->destroy_data($id, 'materials');
+		redirect('dashboard/materials');
+	}
+
+	// view per menu
+	public function edit_material($id)
+	{
+		$dataHeader = [
+			'title' => "Edit data Ayoboga",
+			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
+		];
+
+		$data = [
+			'item' => $this->belajar_model->get_data($id,'materials')
+		];
+
+		$this->load->view('templates/header', $dataHeader);
+		$this->load->view('dashboard/edit_material', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function update_material()
+	{
+		$this->form_validation->set_rules('id_material', 'id_material', 'required');
+
+		if ($this->form_validation->run() === FALSE) {
+			redirect('dashboard/materials');
+		} else {
+			$data = array(
+				'id_menu' => $this->input->post('id_menu'),
+				'id_material' => $this->input->post('id_material'),
+				'title' => $this->input->post('title'),
+				'slug' => $this->input->post('slug'),
+				'sub_title' => $this->input->post('sub_title'),
+				'content' => $this->input->post('content')
+			);
+			$where = array('id' => $this->input->post('id'));
+
+			$this->belajar_model->update_data($where, $data, 'materials');
+			redirect('dashboard/materials');
 		}
 	}
 }
