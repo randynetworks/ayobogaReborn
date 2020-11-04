@@ -5,9 +5,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['masak'] = 'belajar/belajar_masak';
 $route['masak/(:any)'] = 'belajar/view_masak/$1';
 
-// service
-// $route['service'] = 'belajar/belajar_service';
-// $route['service/(:any)'] = 'belajar/view_service/$1';
+// Dashboard
+$route['dashboard'] = 'dashboard';
+$route['dashboard/menus'] = 'dashboard/menus';
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';

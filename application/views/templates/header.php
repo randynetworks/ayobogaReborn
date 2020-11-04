@@ -4,11 +4,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Ayoboga adalah website pembelajaran online tentang jasaboga, alasan dibuatnya ayoboga,
-					karena melihat jarang sekali website pembelajaran lengkap mulai dari awal hingga expert untuk belajar masak,
-					selain dari itu, ayoboga dibuat untuk mengajak generasi milenial yang faktanya sangat malas untuk memasak.
-					ayoboga dibuat dengan sistem mengajar yang seru dan fun! sehingga teman teman semua bisa belajar sambil bermain">
-	<title>Ayoboga.com | Website belajar Masak Online</title>
+	<meta name="description" content="<?= $desc; ?>">
+	<title><?= $title; ?></title>
+
 
 	<script src="https://kit.fontawesome.com/d7573f2700.js" crossorigin="anonymous"></script>
 	<link rel="icon" href="<?= base_url('assets/img/') ?>ay.png">

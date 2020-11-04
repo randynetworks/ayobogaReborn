@@ -1,7 +1,6 @@
 <div class="main-page container sm-5 mt-3 mb-3">
 	<div class="text-center my-4">
 		<h1>Sudah siap belajar masak?</h1>
-		<br>
 	</div>
 	<h6 class="ban text-white p-3 text-center">Tenang aja, semua belajar dari awal kok, engga ada yang namanya telat!</h6>
 	<div class="card-deck row mt-4">

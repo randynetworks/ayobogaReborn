@@ -1,7 +1,6 @@
-<div class="main-page container pl-0 pr-0 mt-5 mb-5">
-	<div class="text-center">
+<div class="main-page container pl-0 pr-0 mb-5">
+	<div class="text-center my-4">
 		<h1><?= $cards_masak_item['title']; ?></h1>
-		<br>
 	</div>
 	<h6 class="ban text-white p-3 text-center"><?= $cards_masak_item['info']; ?></h6>
 

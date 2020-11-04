@@ -6,13 +6,17 @@ class Welcome extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('url_helper');
 	}
 
 	public function index()
 	{
 
-		$this->load->view('templates/header');
+		$data = [
+			'title' => "Ayoboga Education | Codeigniter Edition",
+			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
+		];
+
+		$this->load->view('templates/header', $data);
 		$this->load->view('main_page');
 		$this->load->view('templates/footer');
 	}
