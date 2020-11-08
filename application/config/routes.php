@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+
+
 // memasak
 $route['masak'] = 'belajar/belajar_masak';
 $route['masak/(:any)'] = 'belajar/view_masak/$1';
@@ -13,6 +15,8 @@ $route['dashboard/destroy_menu/(:any)'] = 'dashboard/destroy_menu/$1';
 $route['dashboard/edit_menu/(:any)'] = 'dashboard/edit_menu/$1';
 $route['dashboard/update_menu'] = 'dashboard/update_menu';
 
+
+$route['auth'] = 'auth';
 
 $route['dashboard/materials'] = 'dashboard/materials';
 $route['dashboard/set_material'] = 'dashboard/set_material';
