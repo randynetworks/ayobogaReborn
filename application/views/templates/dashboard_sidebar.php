@@ -14,7 +14,7 @@
 
 	<!-- Heading -->
 	<div class="sidebar-heading">
-		Administrator
+		Admin
 	</div>
 
 	<!-- Nav Item - Dashboard -->

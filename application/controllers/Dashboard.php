@@ -99,15 +99,21 @@ class Dashboard extends CI_Controller
 		}
 	}
 
+	public function infoData($title)
+	{
+		return [
+			'title' => $title,
+			'selected_dash' => "active",
+			'user' => $this->user()
+		];
+	}
+
 
 	public function index()
 	{
 		$this->check_user();
-		$data['title'] = "Dashboard";
-		$data['selected_dash'] = "active";
-		$data['user'] = $this->user();
+		$data = $this->infoData('Dashboard Admin');
 
-		$this->load->helper('url');
 		$this->view_template('admin/dashboard', $data);
 	}
 
@@ -115,20 +121,16 @@ class Dashboard extends CI_Controller
 	{
 		$this->check_user();
 
-		$data['user'] = $this->user();
-		$data['title'] = "Me Profile";
-		$data['selected_dash'] = "active";
+		$data = $this->infoData('My Profile');
 
-		$this->load->helper('url');
 		$this->view_template('admin/admin_profile', $data);
 	}
 
 	public function admin_list()
 	{
 		$this->check_user();
-		$data['user'] = $this->user();
-		$data['title'] = "Admin List";
-		$data['selected_dash'] = "active";
+		$data = $this->infoData('List Admin');
+
 
 		$data['admin_list'] = $this->db->get('user')->result_array();
 
@@ -139,17 +141,11 @@ class Dashboard extends CI_Controller
 	public function menus()
 	{
 		$this->check_user();
-		$data['selected_dash'] = "active";
-
+		$data = $this->infoData('Manage Menu di Ayoboga');
 		$keyword = $this->search_logic();
-
 		$id = false;
 
-		$data = [
-			'menus' => $this->belajar_model->get_data($id, 'menus', $keyword),
-			'user' => $this->user(),
-			'title' => "Dashboard Manage Menu di Ayoboga"
-		];
+		$data['menus'] = $this->belajar_model->get_data($id, 'menus', $keyword);
 
 		$this->view_template('admin/menus', $data);
 	}
@@ -172,17 +168,7 @@ class Dashboard extends CI_Controller
 
 	public function destroy_menu($id)
 	{
-		$ses_id = $this->session->userdata('email');
-
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
+		$this->check_user();
 
 		$this->belajar_model->destroy_data($id, 'menus');
 		redirect('dashboard/menus');
@@ -192,12 +178,9 @@ class Dashboard extends CI_Controller
 	public function edit_menu($id)
 	{
 		$this->check_user();
+		$data = $this->infoData("Edit Data Menu");
 
-		$data = [
-			'item' => $this->belajar_model->get_data($id, 'menus'),
-			'user' => $this->user(),
-			'title' => "Edit Data"
-		];
+		$data['item'] = $this->belajar_model->get_data($id, 'menus');
 
 
 		$this->view_template('admin/edit_menu', $data);
@@ -224,18 +207,14 @@ class Dashboard extends CI_Controller
 	{
 
 		$this->check_user();
-		$data['user'] = $this->user();
-		$data['title'] = "Materials";
-		$data['selected_dash'] = "active";
+		$data = $this->infoData("Manage Material Ayoboga");
 
 		$keyword = $this->search_logic();
 
 
 		$id = false;
 
-		$data = [
-			'materials' => $this->belajar_model->get_data($id, 'materials', $keyword),
-		];
+		$data['materials'] = $this->belajar_model->get_data($id, 'materials', $keyword);
 
 		$this->view_template('admin/materials', $data);
 	}
@@ -244,10 +223,12 @@ class Dashboard extends CI_Controller
 	{
 		$this->check_user();
 
+		$data = $this->post_content('materials');
+
+
 		if ($this->form_validation->run() === FALSE) {
 			redirect('dashboard/materials');
 		} else {
-			$data = $this->post_content('materials');
 			$this->belajar_model->set_data($data, 'materials');
 			redirect('dashboard/materials');
 		}
@@ -265,18 +246,9 @@ class Dashboard extends CI_Controller
 	public function edit_material($id)
 	{
 		$this->check_user();
-		$data['user'] = $this->user();
-		$data['title'] = "Edit Material";
-		$data['selected_dash'] = "active";
+		$data = $this->infoData("Edit Material");
 
-		$dataHeader = [
-			'title' => "Edit data Ayoboga",
-			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
-		];
-
-		$data = [
-			'item' => $this->belajar_model->get_data($id, 'materials')
-		];
+		$data['item'] = $this->belajar_model->get_data($id, 'materials');
 
 
 		$this->view_template('admin/edit_material', $data);

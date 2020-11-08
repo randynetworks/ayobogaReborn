@@ -5,16 +5,16 @@
 	<h6 class="ban text-white p-3 text-center">Table Pengelolaan Data material</h6>
 	<!-- Button trigger modal -->
 	<div class="text-center mt-4">
-		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalMaterial">
 			Tambah Data Material
 		</button>
 	</div>
 	<!-- Modal -->
-	<div class="modal fade text-dark" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade text-dark" id="modalMaterial" tabindex="-1" aria-labelledby="modalMaterialLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
+					<h5 class="modal-title" id="modalMaterialLabel">Tambah Data</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
