@@ -13,156 +13,154 @@ class Dashboard extends CI_Controller
 		$this->load->library('session');
 		$this->load->database();
 	}
+	// email
+	public function email()
+	{
+		return $this->session->userdata('email');
+	}
+	// USER
+	public function user()
+	{
+		return $this->db->get_where('user', ['email' => $this->email()])->row_array();
+	}
+
+	// CHECK user
+	public function check_user()
+	{
+		if (empty($this->email())) {
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-danger" role="alert">
+				Oupps, you\'re not Login!
+				</div>'
+			);
+			redirect('auth');
+		}
+	}
+
+	// View Template
+	public function view_template($content, $data)
+	{
+		$this->load->view('templates/dashboard_header', $data);
+		$this->load->view('templates/dashboard_sidebar', $data);
+		$this->load->view('templates/dashboard_topbar', $data);
+		$this->load->view($content, $data);
+		$this->load->view('templates/dashboard_footer');
+	}
+
+	public function search_logic()
+	{
+		// SEARCHING
+		// GET KEYWORD
+		if ($this->input->post('submit')) {
+			return $data['keyword'] = $this->input->post('keyword');
+		} else {
+			return $data['keyword'] = 	null;
+		}
+
+		// reset
+		if ($this->input->post('reset')) {
+			return $data['keyword'] = 	null;
+		}
+	}
+
+	public function post_content($menu)
+	{
+		if ($menu == 'menus') {
+
+			$this->form_validation->set_rules('id_menu', 'id_menu', 'required');
+			$this->form_validation->set_rules('title', 'title', 'required');
+			$this->form_validation->set_rules('slug', 'slug', 'required');
+			$this->form_validation->set_rules('info', 'info', 'required');
+
+			return array(
+				'id_menu' => $this->input->post('id_menu'),
+				'title' => $this->input->post('title'),
+				'slug' => $this->input->post('slug'),
+				'info' => $this->input->post('info')
+			);
+		} else if ($menu == 'materials') {
+
+			$this->form_validation->set_rules('id_menu', 'id_menu', 'required');
+			$this->form_validation->set_rules('id_material', 'id_material', 'required');
+			$this->form_validation->set_rules('title', 'title', 'required');
+			$this->form_validation->set_rules('slug', 'slug', 'required');
+			$this->form_validation->set_rules('sub_title', 'sub_title', 'required');
+			$this->form_validation->set_rules('content', 'content', 'required');
+
+			return array(
+				'id_menu' => $this->input->post('id_menu'),
+				'id_material' => $this->input->post('id_material'),
+				'title' => $this->input->post('title'),
+				'slug' => $this->input->post('slug'),
+				'sub_title' => $this->input->post('sub_title'),
+				'content' => $this->input->post('content')
+			);
+		}
+	}
 
 
 	public function index()
 	{
-		$ses_id = $this->session->userdata('email');
-
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
-		$data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+		$this->check_user();
 		$data['title'] = "Dashboard";
 		$data['selected_dash'] = "active";
+		$data['user'] = $this->user();
 
 		$this->load->helper('url');
-		$this->load->view('templates/dashboard_header', $data);
-		$this->load->view('templates/dashboard_sidebar', $data);
-		$this->load->view('templates/dashboard_topbar', $data);
-		$this->load->view('admin/dashboard', $data);
-		$this->load->view('templates/dashboard_footer');
+		$this->view_template('admin/dashboard', $data);
 	}
 
 	public function me()
 	{
-		$ses_id = $this->session->userdata('email');
+		$this->check_user();
 
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
-		$data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+		$data['user'] = $this->user();
 		$data['title'] = "Me Profile";
 		$data['selected_dash'] = "active";
 
 		$this->load->helper('url');
-		$this->load->view('templates/dashboard_header', $data);
-		$this->load->view('templates/dashboard_sidebar', $data);
-		$this->load->view('templates/dashboard_topbar', $data);
-		$this->load->view('admin/admin_profile', $data);
-		$this->load->view('templates/dashboard_footer');
+		$this->view_template('admin/admin_profile', $data);
 	}
 
 	public function admin_list()
 	{
-		$ses_id = $this->session->userdata('email');
-
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
-		$data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+		$this->check_user();
+		$data['user'] = $this->user();
 		$data['title'] = "Admin List";
 		$data['selected_dash'] = "active";
 
 		$data['admin_list'] = $this->db->get('user')->result_array();
 
-		$this->load->view('templates/dashboard_header', $data);
-		$this->load->view('templates/dashboard_sidebar', $data);
-		$this->load->view('templates/dashboard_topbar', $data);
-		$this->load->view('admin/admin_list', $data);
-		$this->load->view('templates/dashboard_footer');
+		$this->view_template('admin/admin_list', $data);
 	}
 
 
 	public function menus()
 	{
-		$ses_id = $this->session->userdata('email');
-
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
-		$data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+		$this->check_user();
 		$data['selected_dash'] = "active";
 
-		// SEARCHING
-		// GET KEYWORD
-		if ($this->input->post('submit')) {
-			$data['keyword'] = $this->input->post('keyword');
-		} else {
-			$data['keyword'] = 	null;
-		}
+		$keyword = $this->search_logic();
 
-		// reset
-		if ($this->input->post('reset')) {
-			$data['keyword'] = 	null;
-		}
 		$id = false;
 
 		$data = [
-			'menus' => $this->belajar_model->get_data($id, 'menus', $data['keyword']),
-			'user' => $this->db->get_where('user', ['email' => $ses_id])->row_array(),
+			'menus' => $this->belajar_model->get_data($id, 'menus', $keyword),
+			'user' => $this->user(),
 			'title' => "Dashboard Manage Menu di Ayoboga"
 		];
 
-
-		$this->load->view('templates/dashboard_header', $data);
-		$this->load->view('templates/dashboard_sidebar', $data);
-		$this->load->view('templates/dashboard_topbar', $data);
-		$this->load->view('admin/menus', $data);
-		$this->load->view('templates/dashboard_footer');
+		$this->view_template('admin/menus', $data);
 	}
 
 
 	public function set_menu()
 	{
 
-		$ses_id = $this->session->userdata('email');
+		$this->check_user();
 
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
-
-		$this->form_validation->set_rules('id_menu', 'id_menu', 'required');
-		$this->form_validation->set_rules('title', 'title', 'required');
-		$this->form_validation->set_rules('slug', 'slug', 'required');
-		$this->form_validation->set_rules('info', 'info', 'required');
-
-		$data = array(
-			'id_menu' => $this->input->post('id_menu'),
-			'title' => $this->input->post('title'),
-			'slug' => $this->input->post('slug'),
-			'info' => $this->input->post('info')
-		);
+		$data = $this->post_content('menus');
 
 		if ($this->form_validation->run() === FALSE) {
 			redirect('dashboard/menus');
@@ -193,73 +191,27 @@ class Dashboard extends CI_Controller
 	// view per menu
 	public function edit_menu($id)
 	{
-		$ses_id = $this->session->userdata('email');
-
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
-
-		// SEARCHING
-		// GET KEYWORD
-		if ($this->input->post('submit')) {
-			$data['keyword'] = $this->input->post('keyword');
-		} else {
-			$data['keyword'] = 	null;
-		}
-
-		// reset
-		if ($this->input->post('reset')) {
-			$data['keyword'] = 	null;
-		}
+		$this->check_user();
 
 		$data = [
 			'item' => $this->belajar_model->get_data($id, 'menus'),
-			'user' => $this->db->get_where('user', ['email' => $ses_id])->row_array(),
-			'title'=> "Edit Data"
+			'user' => $this->user(),
+			'title' => "Edit Data"
 		];
 
 
-		$this->load->view('templates/dashboard_header', $data);
-		$this->load->view('templates/dashboard_sidebar');
-		$this->load->view('templates/dashboard_topbar', $data);
-		$this->load->view('admin/edit_menu', $data);
-		$this->load->view('templates/dashboard_footer');
+		$this->view_template('admin/edit_menu', $data);
 	}
 
 	public function update_menu()
 	{
-		$ses_id = $this->session->userdata('email');
+		$this->check_user();
 
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
-
-		$this->form_validation->set_rules('id_menu', 'id_menu', 'required');
-		$this->form_validation->set_rules('title', 'title', 'required');
-		$this->form_validation->set_rules('slug', 'slug', 'required');
-		$this->form_validation->set_rules('info', 'info', 'required');
+		$data = $this->post_content('menus');
 
 		if ($this->form_validation->run() === FALSE) {
 			redirect('dashboard/menus');
 		} else {
-			$data = array(
-				'id_menu' => $this->input->post('id_menu'),
-				'title' => $this->input->post('title'),
-				'slug' => $this->input->post('slug'),
-				'info' => $this->input->post('info')
-			);
 			$where = array('id' => $this->input->post('id'));
 
 			$this->belajar_model->update_data($where, $data, 'menus');
@@ -271,81 +223,31 @@ class Dashboard extends CI_Controller
 	public function materials()
 	{
 
-		$ses_id = $this->session->userdata('email');
-
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
-		$data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+		$this->check_user();
+		$data['user'] = $this->user();
 		$data['title'] = "Materials";
 		$data['selected_dash'] = "active";
-		$dataHeader = [
-			'title' => "Dashboard Manage Materials di Ayoboga",
-			'desc' => "Website Belajar tentang Tata Boga bahasa Indonesia"
-		];
 
-		// SEARCHING
-		// GET KEYWORD
-		if ($this->input->post('submit')) {
-			$data['keyword'] = $this->input->post('keyword');
-		} else {
-			$data['keyword'] = 	null;
-		}
+		$keyword = $this->search_logic();
 
-		// reset
-		if ($this->input->post('reset')) {
-			$data['keyword'] = 	null;
-		}
 
 		$id = false;
 
 		$data = [
-			'materials' => $this->belajar_model->get_data($id, 'materials', $data['keyword']),
+			'materials' => $this->belajar_model->get_data($id, 'materials', $keyword),
 		];
 
-		$this->load->view('templates/header', $dataHeader);
-		$this->load->view('dashboard/materials', $data);
-		$this->load->view('templates/footer');
+		$this->view_template('admin/materials', $data);
 	}
 
 	public function set_material()
 	{
-		$ses_id = $this->session->userdata('email');
-
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
-
-		$this->form_validation->set_rules('id_menu', 'id_menu', 'required');
-		$this->form_validation->set_rules('id_material', 'id_material', 'required');
-		$this->form_validation->set_rules('title', 'title', 'required');
-		$this->form_validation->set_rules('slug', 'slug', 'required');
-		$this->form_validation->set_rules('sub_title', 'sub_title', 'required');
-		$this->form_validation->set_rules('content', 'content', 'required');
+		$this->check_user();
 
 		if ($this->form_validation->run() === FALSE) {
 			redirect('dashboard/materials');
 		} else {
-			$data = array(
-				'id_menu' => $this->input->post('id_menu'),
-				'id_material' => $this->input->post('id_material'),
-				'title' => $this->input->post('title'),
-				'slug' => $this->input->post('slug'),
-				'sub_title' => $this->input->post('sub_title'),
-				'content' => $this->input->post('content')
-			);
+			$data = $this->post_content('materials');
 			$this->belajar_model->set_data($data, 'materials');
 			redirect('dashboard/materials');
 		}
@@ -353,17 +255,7 @@ class Dashboard extends CI_Controller
 
 	public function destroy_material($id)
 	{
-		$ses_id = $this->session->userdata('email');
-
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
+		$this->check_user();
 
 		$this->belajar_model->destroy_data($id, 'materials');
 		redirect('dashboard/materials');
@@ -372,18 +264,8 @@ class Dashboard extends CI_Controller
 	// view per menu
 	public function edit_material($id)
 	{
-		$ses_id = $this->session->userdata('email');
-
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
-		$data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+		$this->check_user();
+		$data['user'] = $this->user();
 		$data['title'] = "Edit Material";
 		$data['selected_dash'] = "active";
 
@@ -396,38 +278,20 @@ class Dashboard extends CI_Controller
 			'item' => $this->belajar_model->get_data($id, 'materials')
 		];
 
-		$this->load->view('templates/header', $dataHeader);
-		$this->load->view('dashboard/edit_material', $data);
-		$this->load->view('templates/footer');
+
+		$this->view_template('admin/edit_material', $data);
 	}
 
 	public function update_material()
 	{
-		$ses_id = $this->session->userdata('email');
-
-		if (empty($ses_id)) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-				</div>'
-			);
-			redirect('auth');
-		}
+		$this->check_user();
 
 		$this->form_validation->set_rules('id_material', 'id_material', 'required');
 
 		if ($this->form_validation->run() === FALSE) {
 			redirect('dashboard/materials');
 		} else {
-			$data = array(
-				'id_menu' => $this->input->post('id_menu'),
-				'id_material' => $this->input->post('id_material'),
-				'title' => $this->input->post('title'),
-				'slug' => $this->input->post('slug'),
-				'sub_title' => $this->input->post('sub_title'),
-				'content' => $this->input->post('content')
-			);
+			$data = $this->post_content('materials');
 			$where = array('id' => $this->input->post('id'));
 
 			$this->belajar_model->update_data($where, $data, 'materials');
