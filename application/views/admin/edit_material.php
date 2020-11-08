@@ -42,7 +42,7 @@
 				</div>
 				<div class="form-group">
 					<label for="inputAddress2">Content</label>
-					<textarea name="content" type="text" class="form-control" id="inputAddress2" rows="5"><?= $item['content']; ?></textarea>
+					<textarea name="content" type="text" class="form-control" id="summernote" rows="5"><?= $item['content']; ?></textarea>
 				</div>
 				<button type="submit" class="btn btn-primary">Update</button>
 				<a href="<?= base_url('dashboard/materials'); ?>" class="btn btn-secondary">Kembali</a>

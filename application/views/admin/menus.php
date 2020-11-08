@@ -108,7 +108,7 @@
 				</div>
 				<div class="form-group">
 					<label for="inputAddress2">Info</label>
-					<textarea name="info" type="text" class="form-control" id="inputAddress2" placeholder="Masukan Info Menu" rows="5"></textarea>
+					<textarea name="info" type="text" class="form-control" id="summernote" placeholder="Masukan Info Menu" rows="5"></textarea>
 				</div>
 				<button type="submit" class="btn btn-primary">Simpan</button>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

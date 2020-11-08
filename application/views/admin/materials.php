@@ -121,7 +121,7 @@
 				</div>
 				<div class="form-group">
 					<label for="inputAddress2">Content</label>
-					<textarea name="content" type="text" class="form-control" id="inputAddress2" rows="5"></textarea>
+					<textarea name="content" type="text" class="form-control" id="summernote" rows="5"></textarea>
 				</div>
 				<button type="submit" class="btn btn-primary">Simpan</button>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

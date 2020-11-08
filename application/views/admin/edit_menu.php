@@ -32,7 +32,7 @@
 				</div>
 				<div class="form-group">
 					<label for="inputAddress2">Info</label>
-					<textarea rows="5" name="info" type="text" class="form-control" id="inputAddress2"><?= $item['info']; ?></textarea>
+					<textarea rows="5" name="info" type="text" class="form-control" id="summernote"><?= $item['info']; ?></textarea>
 				</div>
 				<button type="submit" class="btn btn-primary">Update</button>
 				<a href="<?= base_url('dashboard/menus'); ?>" class="btn btn-secondary">Kembali</a>
