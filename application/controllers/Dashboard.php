@@ -96,6 +96,15 @@ class Dashboard extends CI_Controller
 				'sub_title' => $this->input->post('sub_title'),
 				'content' => $this->input->post('content')
 			);
+		} else if ($menu == 'admin') {
+
+			$this->form_validation->set_rules('role_id', 'role_id', 'required');
+			$this->form_validation->set_rules('is_active', 'is_active', 'required');
+
+			return array(
+				'role_id' => $this->input->post('role_id'),
+				'is_active' => $this->input->post('is_active'),
+			);
 		}
 	}
 
@@ -138,6 +147,42 @@ class Dashboard extends CI_Controller
 	}
 
 
+	// view per menu
+	public function edit_admin($id)
+	{
+		$this->check_user();
+		$data = $this->infoData("Edit Data Admin");
+
+		$data['item'] = $this->belajar_model->get_data($id, 'user');
+
+
+		$this->view_template('admin/edit_admin', $data);
+	}
+
+
+	public function update_admin()
+	{
+		$this->check_user();
+
+		$data = $this->post_content('admin');
+
+		if ($this->form_validation->run() === FALSE) {
+			redirect('dashboard/admin_list');
+		} else {
+			$where = array('id' => $this->input->post('id'));
+
+			$this->belajar_model->update_data($where, $data, 'user');
+			redirect('dashboard/admin_list');
+		}
+	}
+	public function destroy_admin($id)
+	{
+		$this->check_user();
+
+		$this->belajar_model->destroy_data($id, 'user');
+		redirect('dashboard/admin_list');
+	}
+
 	public function menus()
 	{
 		$this->check_user();
@@ -149,6 +194,7 @@ class Dashboard extends CI_Controller
 
 		$this->view_template('admin/menus', $data);
 	}
+
 
 
 	public function set_menu()

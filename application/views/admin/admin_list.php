@@ -26,17 +26,17 @@
 							</tr>
 						</thead>
 						<tbody>
-							<? foreach ($admin_list as $admin) : ?>
+							<? foreach ($admin_list as $item) : ?>
 							<tr>
-								<td class="align-middle"><?= $admin['name']; ?></td>
-								<td class="align-middle"><?= $admin['email']; ?></td>
-								<td class="align-middle"><img height="100px" width="100px" src="<?= base_url('assets/img/profile/') . $admin['image']; ?>" alt=""></td>
-								<td class="align-middle"><?= $admin['role_id']; ?></td>
-								<td class="align-middle"><?= $admin['is_active']; ?></td>
-								<td class="align-middle">Admin since <?= date('d F Y', $admin['date_created']) ?></td>
+								<td class="align-middle"><?= $item['name']; ?></td>
+								<td class="align-middle"><?= $item['email']; ?></td>
+								<td class="align-middle"><img height="100px" width="100px" src="<?= base_url('assets/img/profile/') . $item['image']; ?>" alt=""></td>
+								<td class="align-middle"><?= $item['role_id']; ?></td>
+								<td class="align-middle"><?= $item['is_active']; ?></td>
+								<td class="align-middle">Admin since <?= date('d F Y', $item['date_created']) ?></td>
 								<td class="align-middle">
-									<button class="btn btn-primary"><i class="far fa-edit"> Edit</i></button> |
-									<button class="btn btn-danger"><i class="far fa-trash-alt"> Del</i></button>
+									<a href="<?= base_url('dashboard/edit_admin/') . $item['id']; ?>" class="badge badge-sm badge-primary">Edit</i></a> |
+									<a href="<?= base_url('dashboard/destroy_admin/') . $item['id']; ?>" class="badge badge-sm badge-danger">Del</i></a>
 								</td>
 							</tr>
 							<? endforeach; ?>
