@@ -117,6 +117,32 @@ class Dashboard extends CI_Controller
 		];
 	}
 
+	public function notif_simpan()
+	{
+		return $this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-success" role="alert">
+			Data Disimpan.
+		</div>');
+	}
+
+	public function notif_Hapus()
+	{
+		return $this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-danger" role="alert">
+			Data Dihapus.
+		</div>');
+	}
+	public function notif_update()
+	{
+		return $this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-primary" role="alert">
+			Data Diupdate.
+		</div>');
+	}
+
 
 	public function index()
 	{
@@ -155,7 +181,6 @@ class Dashboard extends CI_Controller
 
 		$data['item'] = $this->belajar_model->get_data($id, 'user');
 
-
 		$this->view_template('admin/edit_admin', $data);
 	}
 
@@ -172,6 +197,7 @@ class Dashboard extends CI_Controller
 			$where = array('id' => $this->input->post('id'));
 
 			$this->belajar_model->update_data($where, $data, 'user');
+			$this->notif_update();
 			redirect('dashboard/admin_list');
 		}
 	}
@@ -180,6 +206,7 @@ class Dashboard extends CI_Controller
 		$this->check_user();
 
 		$this->belajar_model->destroy_data($id, 'user');
+		$this->notif_Hapus();
 		redirect('dashboard/admin_list');
 	}
 
@@ -208,6 +235,7 @@ class Dashboard extends CI_Controller
 			redirect('dashboard/menus');
 		} else {
 			$this->belajar_model->set_data($data, 'menus');
+			$this->notif_simpan();
 			redirect('dashboard/menus');
 		}
 	}
@@ -217,6 +245,7 @@ class Dashboard extends CI_Controller
 		$this->check_user();
 
 		$this->belajar_model->destroy_data($id, 'menus');
+		$this->notif_Hapus();
 		redirect('dashboard/menus');
 	}
 
@@ -242,8 +271,8 @@ class Dashboard extends CI_Controller
 			redirect('dashboard/menus');
 		} else {
 			$where = array('id' => $this->input->post('id'));
-
 			$this->belajar_model->update_data($where, $data, 'menus');
+			$this->notif_update();
 			redirect('dashboard/menus');
 		}
 	}
@@ -276,6 +305,7 @@ class Dashboard extends CI_Controller
 			redirect('dashboard/materials');
 		} else {
 			$this->belajar_model->set_data($data, 'materials');
+			$this->notif_simpan();
 			redirect('dashboard/materials');
 		}
 	}
@@ -285,6 +315,7 @@ class Dashboard extends CI_Controller
 		$this->check_user();
 
 		$this->belajar_model->destroy_data($id, 'materials');
+		$this->notif_Hapus();
 		redirect('dashboard/materials');
 	}
 
@@ -313,6 +344,7 @@ class Dashboard extends CI_Controller
 			$where = array('id' => $this->input->post('id'));
 
 			$this->belajar_model->update_data($where, $data, 'materials');
+			$this->notif_update();
 			redirect('dashboard/materials');
 		}
 	}

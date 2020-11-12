@@ -5,8 +5,6 @@
 
 		<!-- Page Heading -->
 		<h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-		<?= $this->session->flashdata('message'); ?>
-
 		<div class="mt-4">
 			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalMaterial">
 				Tambah Data Material
@@ -32,6 +30,7 @@
 				<h6 class="m-0 font-weight-bold text-primary">Table Pengelolaan Data materials per tanggal <?= date('d F Y') ?> </h6>
 			</div>
 			<div class="card-body mb-4 p-4">
+			<?= $this->session->flashdata('message'); ?>
 				<div class="table-responsive">
 					<?php echo validation_errors(); ?>
 					<table class="table table-bordered table-wrapper-scroll-y my-custom-scrollbar">

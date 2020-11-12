@@ -12,6 +12,8 @@
 				<h6 class="m-0 font-weight-bold text-primary">Data Table Admin website HMISI per tanggal <?= date('d F Y') ?> </h6>
 			</div>
 			<div class="card-body">
+
+			<?= $this->session->flashdata('message'); ?>
 				<div class="table-responsive">
 					<table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
 						<thead>
