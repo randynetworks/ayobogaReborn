@@ -5,7 +5,6 @@
 
 		<!-- Page Heading -->
 		<h1 class="h3 mb-4 text-gray-800">Selamat Datang, <?= $user['name']; ?></h1>
-
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-4 bg-white p-3 rounded text-center shadow-sm m-3">
@@ -28,7 +27,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 	<!-- /.container-fluid -->
 
