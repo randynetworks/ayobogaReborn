@@ -152,6 +152,9 @@
 				<li class="nav-item">
 					<a href="<?= base_url('dashboard'); ?>" class="nav-link">Dashboard</a>
 				</li>
+				<li class="nav-item">
+					<a href="<?= base_url('welcome/about'); ?>" class="nav-link">Tentang</a>
+				</li>
 			</ul>
 		</div>
 	</nav>

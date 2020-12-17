@@ -20,4 +20,15 @@ class Welcome extends CI_Controller
 		$this->load->view('main_page');
 		$this->load->view('templates/footer');
 	}
+	public function about()
+	{
+		$data = [
+			'title' => "Ayoboga Education | Codeigniter Edition",
+			'desc' => "Tentang"
+		];
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('about');
+		$this->load->view('templates/footer');
+	}
 }
